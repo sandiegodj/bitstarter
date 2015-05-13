@@ -1,14 +1,13 @@
 var fs = require("fs");
 var express = require('express');
 var app = express();
-var buf = new Buffer(25);
-var file = fs.readFileSync('index.html','utf-8');
-var out = buf.toString(file);
+var buf = new Buffer(fs.readFileSync('index.html'), 'utf-8');
+
 
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send(out)
+  response.send(buf.toString());
 })
 
 app.listen(app.get('port'), function() {
