@@ -1,7 +1,7 @@
 var fs = require("fs");
 var express = require('express');
 var app = express();
-var buf = new Buffer(fs.readFileSync('index.html'),'utf-8');
+var buf = new Buffer(fs.readFileSync('index.html'),'utf8');
 
 
 app.use(express.static(__dirname + '/public'));
